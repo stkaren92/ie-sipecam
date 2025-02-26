@@ -1,0 +1,47 @@
+
+Reclasificaci—n el Nivel I en Conjunto de datos vectoriales de la carta de Vegetaci—n primaria escala 1: 1 000 000 (Nivel I y II) 2003 para tipos de Ecosistemas en SiPeCaM.
+
+La reclasificaci—n consisti— en los siguientes 7 tipos para los Ecosistemas SiPeCaM a partir de los 12 tipos de vegetaci—n de INEGI Nivel I: 
+
+NI Bosque de Con’feras/SIPECAM Bosque Templado
+NI Bosque de Encino/SIPECAM Bosque Templado
+NI Bosque Mes—filo de Monta–a/SIPECAM Bosque Mes—filo
+NI Selva Perennifolia/SIPECAM Selva Hœmeda
+NI Selva Subcaducifolia/SIPECAM Selva Seca
+NI Selva Caducifolia/SIPECAM Selva Seca
+NI Selva Espinosa/SIPECAM Selva Seca
+NI Pastizal/SIPECAM/SIPECAM Pastizal
+NI Matorral Xer—filo/SIPECAM Matorral
+NI Vegetaci—n Hidr—fila/SIPECAM Vegetaci—n Hidr—fila
+NI Otros Tipos de Vegetaci—n/SIPECAM Selva Seca
+NI çreas Sin Vegetaci—n Aparente/SIPECAM Matorral
+ 
+
+Identifier: 
+
+Title: Conjunto de datos vectoriales de la carta de Vegetación primaria escala 1: 1 000 000 (Nivel I y II)
+
+description: En respuesta a la necesidad de conocer cuál fue el estado natural de las comunidades vegetales antes de los grandes cambios antropogénicos del Siglo XIX y Siglo XX, el INEGI lleva a cabo el proyecto de la carta de Vegetación Primaria a escala 1:1’000,000, con un cubrimiento total de la República Mexicana, con el cual se pretende apoyar los estudios de la distribución de plantas y animales, conservación de hábitat únicos, análisis de impacto ambiental, proyectos de conservación y rescate de corredores biológicos, áreas  ecológicas, zonas protegidas y en proyectos de aprovechamiento sustentable, así como participar en la protección de la biodiversidad de México y la biota mesoamericana, entre muchos más trabajos que se pueden derivar y/o apoyarse en esta aportación.
+
+modified: 2003-07-27 
+
+publisher: Instituto Nacional de Estadística y Geografía - INEGI
+
+mbox: atencion.usuarios@inegi.org.mx
+
+license: Términos de Libre Uso de la Información del INEGI http://www.inegi.org.mx/terminos/terminos_info.aspx 
+
+datadictionary:
+
+keyword: bosques, coníferas, encinos, mesófilos, continuos, matorrales, xerófilos, mezquitales, palmares, pastizales, selvas, caducifolias, espinosas, perenifolias, subcaducufolias, vegetaciones, aparentes, usos, suelos, dunas, costeras, hidrófilas, primarias
+	
+ContactPoint: Lic. José de Jesús Esquivel de la Rosa, 01800 111 4634
+
+temporal: 1993-03 – 1993-09
+
+Spatial: Estados Unidos Mexicanos
+
+accrualperiodicity: 
+
+distribution: http://internet.contenidos.inegi.org.mx/contenidos/productos//prod_serv/contenidos/espanol/bvinegi/productos/geografia/veg_prim/702825293246_s.zip
+ 

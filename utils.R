@@ -25,15 +25,18 @@ get_test_table <- function(df_counts){
   # which samples have multiple difference values
   # so the variance is greater than zero
   df_test1 <- df_ei %>% 
-    filter(!(n_samples==n_diff_duplicate)) %>% 
-    group_by(etiqueta) %>% 
-    do(tidy(t.test(.$Integro,
-                   .$Degradado, 
-                   mu = 0, 
-                   alt = "two.sided", 
-                   paired = TRUE, 
-                   conf.level = 0.95))) %>% 
-    mutate(n=parameter+1)
+    filter(!(n_samples==n_diff_duplicate))
+  if(nrow(df_test1) > 0) {
+    df_test1 <- df_test1 %>% 
+      group_by(etiqueta) %>% 
+      do(tidy(t.test(.$Integro,
+                     .$Degradado, 
+                     mu = 0, 
+                     alt = "two.sided", 
+                     paired = TRUE, 
+                     conf.level = 0.95))) %>% 
+      mutate(n=parameter+1)
+  }
   
   # Only keep the mean difference for species
   # that didn't have variance greater than zero

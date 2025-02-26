@@ -1,13 +1,16 @@
 ---
 title: "Fauna de acuerdo a Integridad Ecológica"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Queremos conocer qué animales habitan zonas íntegras y qué otros habitan zonas degradadas, para lo cual contamos con un mapa del Índice de Integridad Ecológica (IEE) y datos de fototrampeo obtenidos del proyecto SiPeCaM. 
+Queremos conocer qué animales habitan zonas íntegras y qué otros habitan zonas degradadas, para lo cual contamos con un mapa del Índice de Integridad Ecológica (IEE) y datos de fototrampeo obtenidos del proyecto SiPeCaM.
 
 ```{r load, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -27,9 +30,10 @@ df <- df %>%
   mutate_at(vars(fecha_foto), as.Date, format="%Y-%m-%d") %>% 
   mutate(year = year(fecha_foto))
 ```
-De acuerdo al muestreo de SiPeCaM, se colocaron las cámaras trampa en áreas que se nombraron _cúmulos_, dentro de éstas, el terreno cuenta con las mismas características, con la diferencia que algunas zonas son íntegras y otras degradadas. 
 
-Cada renglón representa una especie observada en una foto, pudiendo haber más de un individuo de la especie en cada una. También se cuenta con las coordenadas geográficas de la cámara trampa, el cúmulo en el que fue ubicada y la fecha en la que fue tomada la foto. 
+De acuerdo al muestreo de SiPeCaM, se colocaron las cámaras trampa en áreas que se nombraron *cúmulos*, dentro de éstas, el terreno cuenta con las mismas características, con la diferencia que algunas zonas son íntegras y otras degradadas.
+
+Cada renglón representa una especie observada en una foto, pudiendo haber más de un individuo de la especie en cada una. También se cuenta con las coordenadas geográficas de la cámara trampa, el cúmulo en el que fue ubicada y la fecha en la que fue tomada la foto.
 
 ```{r print_df, echo=FALSE}
 kable(df[1:5,] %>% 
@@ -75,9 +79,9 @@ df_counts <- df_counts %>%
 kable(df_counts[40:51,])
 ```
 
-Se estima la media del grupo de cúmulos por cada especie, tanto en zona íntegra, como degradada. Posteriormente, se restan estos valores, obteniendo la diferencia de medias (columna _estimate_).
+Se estima la media del grupo de cúmulos por cada especie, tanto en zona íntegra, como degradada. Posteriormente, se restan estos valores, obteniendo la diferencia de medias (columna *estimate*).
 
-Para aquellas especies que tuvieron observaciones en más de un cúmulo, se corre una prueba _t_ pareada, que evalúa si la diferencia de medias es diferente de cero, es  decir, si existe un mayor número de observaciones, ya sea en la zona degradada o íntegra.
+Para aquellas especies que tuvieron observaciones en más de un cúmulo, se corre una prueba *t* pareada, que evalúa si la diferencia de medias es diferente de cero, es decir, si existe un mayor número de observaciones, ya sea en la zona degradada o íntegra.
 
 ```{r mean_diff, message = FALSE, warning = FALSE}
 df_test_integridad_nodo <- get_test_table(df_counts)
@@ -87,9 +91,10 @@ df_test_integridad_nodo <- get_test_table(df_counts)
 kable(df_test_integridad_nodo %>% 
   arrange(desc(estimate), ))
 ```
-En la siguiente gráfica podemos observar la diferencia de medias para aquellas especies que fue posible correr la prueba estadística. Los números resaltados indican que el _p-valor_ es menor al nivel de confianza (0.05), por lo que se puede decir que la diferencia es estadísticamente significativa, como es en el caso del _Leopardus pardalis_, que tuvo 4.75 observaciones más en la zona íntegra que en la degradada.
 
-```{r plot, echo=FALSE, out.height = "200%", message = FALSE, warning = FALSE}
+En la siguiente gráfica podemos observar la diferencia de medias para aquellas especies que fue posible correr la prueba estadística. Los números resaltados indican que el *p-valor* es menor al nivel de confianza (0.05), por lo que se puede decir que la diferencia es estadísticamente significativa, como es en el caso del *Leopardus pardalis*, que tuvo 4.75 observaciones más en la zona íntegra que en la degradada.
+
+```{r plot, echo=FALSE, out.height = "300%", message = FALSE, warning = FALSE}
 df_plot <- df_test_integridad_nodo %>% 
   filter(!is.na(p.value)) %>% 
   mutate(p.value = ifelse(is.na(p.value),NA,p.value)) 
@@ -98,7 +103,7 @@ ggplot(data=df_plot,
                              y=estimate,
                              fill=estimate>=0)) +
   geom_bar(stat="identity") +
-  scale_fill_manual(values = c('red','lightgreen'),
+  scale_fill_manual(values = c("#d7191c",'#1a9641'),
                     labels = c("Degradado", 
                                "Íntegro"),
                     name='Más observaciones en:') +
